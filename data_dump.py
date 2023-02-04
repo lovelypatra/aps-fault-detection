@@ -14,10 +14,10 @@ if __name__=="__main__":
     df = pd.read_csv(DATA_FILE_PATH)
     print(f"Rows and Columns: {df.shape}")
 
-    #conver dataframe to json format so that we can dump these record in mongo DB
+    #convert dataframe to json format so that we can dump these record in mongo DB
     df.reset_index(drop=True,inplace=True)
 
-    json_record = list(json.loads(df.T.to_json()).values())#json.load is used to convert any python object
+    json_record = list(json.loads(df.T.to_json()).values())#json.loads is used to convert any python object
     print(json_record[0])
 
     #insert converted json record to mongo DB
